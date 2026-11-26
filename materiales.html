@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Materiales</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+.opciones{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.material-card{
+    flex:1;
+    min-width:150px;
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    text-align:center;
+    cursor:pointer;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+    transition:0.2s;
+}
+
+.material-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 6px 15px rgba(0,0,0,0.15);
+}
+
+.material-card .icon{
+    font-size:35px;
+    margin-bottom:8px;
+}
+
+.material-card h3{
+    margin:0;
+    font-size:16px;
+}
+
+.imagen-final{
+    text-align:center;
+    margin-top:30px;
+}
+
+.imagen-final img{
+    width:100%;
+    max-width:500px;
+    border-radius:12px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <nav>
+        <button onclick="history.back()">VOLVER</button>
+    </nav>
+
+    <header>
+        <h1>MATERIALES</h1>
+    </header>
+
+    <section class="pregunta">
+        <h3>ELIGE UN MATERIAL</h3>
+    </section>
+
+    <section class="opciones">
+
+        <div class="material-card" onclick="mostrarInfo('tubo')">
+            <div class="icon">🧪</div>
+            <h3>Tubo de ensayo</h3>
+        </div>
+
+        <div class="material-card" onclick="mostrarInfo('vaso')">
+            <div class="icon">🥛</div>
+            <h3>Vaso de precipitados</h3>
+        </div>
+
+        <div class="material-card" onclick="mostrarInfo('embudo')">
+            <div class="icon">🔻</div>
+            <h3>Embudo</h3>
+        </div>
+
+        <div class="material-card" onclick="mostrarInfo('probeta')">
+            <div class="icon">📏</div>
+            <h3>Probeta</h3>
+        </div>
+
+    </section>
+
+    <br><br>
+
+    <section class="info-general">
+
+        <h2>INFORMACIÓN</h2>
+
+        <div id="infoMaterial" class="texto-info">
+            Selecciona un material para ver su información.
+        </div>
+
+    </section>
+
+</div>
+
+<script>
+
+function mostrarInfo(material){
+
+    if(material == "tubo"){
+        document.getElementById("infoMaterial").innerHTML =
+        `<h3><strong>Tubo de ensayo</strong></h3>
+Es un recipiente cilíndrico de vidrio (o plástico resistente) que se utiliza principalmente para contener, mezclar y calentar pequeñas cantidades de sustancias químicas en experimentos de laboratorio. Su tamaño pequeño permite trabajar con muestras reducidas, lo que ayuda a controlar mejor las reacciones y evitar desperdicios de material.
+
+Se usa mucho en química y biología para observar cambios como coloraciones, formación de gases o precipitados durante reacciones químicas. También puede calentarse directamente con cuidado usando un soporte, lo que lo hace muy útil para pruebas rápidas.
+
+Los tubos de ensayo suelen utilizarse junto con otros instrumentos como gradillas (para sostenerlos), pipetas (para medir líquidos) y pinzas (para manipularlos cuando están calientes).
+
+En laboratorios escolares, son uno de los materiales más básicos e importantes porque permiten realizar experimentos simples de forma segura y ordenada.`;
+    }
+
+    if(material == "vaso"){
+        document.getElementById("infoMaterial").innerHTML =
+        `<h3><strong>Vaso de precipitados</strong></h3>
+Es un recipiente de vidrio (aunque también puede ser de plástico resistente o materiales especiales) que se utiliza en el laboratorio para mezclar, calentar y contener líquidos o soluciones químicas. Tiene forma cilíndrica con una pequeña boca de salida que facilita verter el contenido sin derrames.
+
+Se usa mucho en experimentos de química porque permite trabajar con diferentes sustancias de manera práctica y segura. Aunque sirve para medir cantidades aproximadas de líquidos, no es un instrumento de precisión, ya que las marcas que tiene son solo orientativas.
+
+El vaso de precipitados también se puede calentar directamente sobre una rejilla o con otros sistemas de calentamiento controlado, lo que lo hace útil para disolver sustancias, preparar mezclas o realizar reacciones químicas sencillas.
+
+Es uno de los instrumentos más comunes en laboratorios escolares y profesionales debido a su versatilidad y facilidad de uso.`;
+    }
+
+    if(material == "embudo"){
+        document.getElementById("infoMaterial").innerHTML =
+        `<h3><strong>Embudo</strong></h3>
+El embudo es un instrumento de laboratorio con forma cónica que se utiliza principalmente para transferir líquidos o sustancias de un recipiente a otro sin derrames. Su forma permite dirigir el líquido hacia una abertura pequeña de manera controlada y limpia.
+
+También es muy utilizado en procesos de filtración, donde se coloca un papel de filtro dentro del embudo para separar sólidos de líquidos. De esta manera, el líquido pasa a través del filtro mientras las partículas sólidas quedan retenidas.
+
+Los embudos pueden estar hechos de vidrio, plástico o materiales resistentes a productos químicos, dependiendo del tipo de sustancia que se trabaje.
+
+Es un instrumento muy básico pero esencial en el laboratorio porque facilita el manejo seguro y ordenado de líquidos, evitando pérdidas y accidentes.`;
+    }
+
+    if(material == "probeta"){
+        document.getElementById("infoMaterial").innerHTML =
+        `<h3><strong>Probeta</strong></h3>
+La probeta es un instrumento de laboratorio utilizado para medir el volumen de líquidos con bastante precisión. Tiene forma de cilindro alto y estrecho, lo que permite una lectura más exacta en comparación con otros recipientes como el vaso de precipitados.
+
+En su superficie tiene marcas graduadas (escala en mililitros) que indican la cantidad de líquido contenido. Para obtener una medida correcta, se debe colocar la probeta sobre una superficie plana y leer el nivel del líquido a la altura de los ojos.
+
+Generalmente está hecha de vidrio o plástico transparente resistente a sustancias químicas. Se usa en laboratorios de química, biología y física para preparar soluciones, realizar mezclas o medir cantidades exactas de líquidos.
+
+Es un instrumento fundamental cuando se necesita precisión en las mediciones, ya que ayuda a evitar errores en los experimentos.`;
+    }
+
+}
+
+</script>
+
+</body>
+</html>

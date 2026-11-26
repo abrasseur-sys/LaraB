@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <nav style="display:flex; justify-content:center; gap:40px; margin-bottom:20px;">
+        <a href="home.html">INICIO</a>
+        <a href="quiz.html">QUIZ</a>
+    </nav>
+
+    <header>
+        <h1>QUIZ DE LABORATORIO</h1>
+    </header>
+
+    <div style="display:flex; gap:20px; align-items:flex-start; margin-top:20px;">
+
+        <section class="info-general" style="flex:3;">
+            <h2>PREGUNTA</h2>
+
+            <div id="quizBox" class="texto-info">
+                <h3 id="pregunta">Cargando...</h3>
+                <div id="opciones"></div>
+            </div>
+        </section>
+
+        <section class="info-general" style="flex:1;">
+            <h2>PUNTAJE</h2>
+            <div class="texto-info" style="text-align:center;">
+                <h1 id="score">0</h1>
+            </div>
+        </section>
+
+    </div>
+
+</div>
+
+<script>
+
+let puntos = 0;
+let actual = 0;
+
+const preguntas = [
+    {
+        q:"¿Cuál es el objetivo principal del laboratorio según el texto?",
+        op:[
+            "Realizar actividades recreativas",
+            "Observar y analizar fenómenos mediante experimentación científica",
+            "Solo guardar materiales e instrumentos",
+            "Es un lugar de descanso"
+        ],
+        correcta:1
+    },
+    {
+        q:"¿Qué instrumento se usa para medir con precisión el volumen de líquidos?",
+        op:[
+            "Vaso de precipitados",
+            "Embudo",
+            "Probeta",
+            "Tubo de ensayo"
+        ],
+        correcta:2
+    },
+    {
+        q:"¿Qué función tiene el tubo de ensayo?",
+        op:[
+            "Contener pequeñas muestras y realizar reacciones químicas",
+            "Medir grandes volúmenes de líquidos",
+            "Filtrar sustancias sólidas",
+            "Transportar agua en grandes cantidades"
+        ],
+        correcta:0
+    },
+    {
+        q:"¿Para qué sirve el embudo en el laboratorio?",
+        op:[
+            "Medir temperatura",
+            "Calentar sustancias químicas",
+            "Transferir líquidos o realizar filtraciones",
+            "Pesar objetos"
+        ],
+        correcta:2
+    },
+    {
+        q:"¿Cuál es una función del vaso de precipitados?",
+        op:[
+            "Medir con exactitud el volumen de líquidos",
+            "Mezclar y calentar líquidos",
+            "Filtrar sustancias sólidas",
+            "Transportar gases"
+        ],
+        correcta:1
+    },
+    {
+        q:"¿Por qué es obligatorio usar bata y gafas?",
+        op:[
+            "Para identificar estudiantes",
+            "Para protegerse de sustancias peligrosas",
+            "Para hacer más fácil el trabajo",
+            "Porque es opcional"
+        ],
+        correcta:1
+    },
+    {
+        q:"¿Cuál de estas es una prohibición en el laboratorio?",
+        op:[
+            "Usar instrumentos correctamente",
+            "Mantener el orden",
+            "No correr ni comer dentro del laboratorio",
+            "Usar gafas de seguridad"
+        ],
+        correcta:2
+    },
+    {
+        q:"¿Qué puede pasar si no hay orden en el laboratorio?",
+        op:[
+            "El laboratorio se ve más bonito",
+            "Se evitan errores automáticamente",
+            "Pueden ocurrir accidentes o derrames",
+            "Nada importante"
+        ],
+        correcta:2
+    },
+    {
+        q:"¿Por qué se deben manipular químicos con supervisión?",
+        op:[
+            "Porque pueden ser peligrosos o causar reacciones no controladas",
+            "Porque es más divertido",
+            "Porque no se pueden tocar nunca",
+            "Porque no tienen efectos"
+        ],
+        correcta:0
+    }
+];
+
+function cargar(){
+
+    let p = preguntas[actual];
+
+    document.getElementById("pregunta").innerText = p.q;
+
+    let html = "";
+
+    for(let i=0;i<4;i++){
+        html += `
+        <div class="card" style="margin:10px 0;">
+            <button onclick="responder(${i})">${p.op[i]}</button>
+        </div>`;
+    }
+
+    document.getElementById("opciones").innerHTML = html;
+}
+
+function responder(i){
+
+    if(i === preguntas[actual].correcta){
+        puntos++;
+        document.getElementById("score").innerText = puntos;
+    }
+
+    actual++;
+
+    if(actual < preguntas.length){
+        cargar();
+    } else {
+        document.getElementById("quizBox").innerHTML =
+        `<h3>🎉 Terminaste el quiz</h3>
+         <p>Resultado final: ${puntos}/${preguntas.length}</p>`;
+    }
+}
+
+cargar();
+
+</script>
+
+</body>
+</html>

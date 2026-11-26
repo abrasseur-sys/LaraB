@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Normas de Seguridad</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+.opciones{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.material-card{
+    flex:1;
+    min-width:150px;
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    text-align:center;
+    cursor:pointer;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+    transition:0.2s;
+}
+
+.material-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 6px 15px rgba(0,0,0,0.15);
+}
+
+.material-card .icon{
+    font-size:35px;
+    margin-bottom:8px;
+}
+
+.material-card h3{
+    margin:0;
+    font-size:16px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <nav>
+        <button onclick="history.back()">VOLVER</button>
+    </nav>
+
+    <header>
+        <h1>NORMAS DE SEGURIDAD</h1>
+    </header>
+
+    <section class="pregunta">
+        <h3>ELIGE UNA NORMA</h3>
+    </section>
+
+    <section class="opciones">
+
+        <div class="material-card" onclick="mostrarInfo('bata')">
+            <div class="icon">🧥</div>
+            <h3>Bata y gafas</h3>
+        </div>
+
+        <div class="material-card" onclick="mostrarInfo('orden')">
+            <div class="icon">🧼</div>
+            <h3>Mantener orden</h3>
+        </div>
+
+        <div class="material-card" onclick="mostrarInfo('quimicos')">
+            <div class="icon">🧪</div>
+            <h3>Manejo de químicos</h3>
+        </div>
+
+        <div class="material-card" onclick="mostrarInfo('prohibido')">
+            <div class="icon">🚫</div>
+            <h3>Prohibiciones</h3>
+        </div>
+
+    </section>
+
+    <br><br>
+
+    <section class="info-general">
+
+        <h2>INFORMACIÓN</h2>
+
+        <div id="infoNormas" class="texto-info">
+            Selecciona una norma para ver su información.
+        </div>
+
+    </section>
+
+</div>
+
+<script>
+
+function mostrarInfo(tipo){
+
+    if(tipo == "bata"){
+        document.getElementById("infoNormas").innerHTML =
+        `<h3><strong>Uso de bata y gafas</strong></h3><p>El uso de bata y gafas de seguridad es obligatorio en el laboratorio porque protege al cuerpo y a los ojos de posibles accidentes durante los experimentos. La bata funciona como una barrera que evita el contacto directo de sustancias químicas, líquidos corrosivos o materiales peligrosos con la ropa y la piel.
+
+Las gafas de seguridad son fundamentales para proteger los ojos de salpicaduras, vapores o partículas que puedan causar irritación o lesiones. Incluso pequeñas gotas de ciertos productos químicos pueden ser dañinas si entran en contacto con los ojos.
+
+Este equipo de protección personal debe usarse siempre antes de comenzar cualquier práctica y mantenerse durante toda la actividad en el laboratorio. Es una de las normas más importantes para garantizar la seguridad de todos los que trabajan en ese espacio.</p>`;
+    }
+
+    if(tipo == "orden"){
+        document.getElementById("infoNormas").innerHTML =
+        `<h3><strong>Mantener el orden</strong></h3><p>El laboratorio debe mantenerse limpio, organizado y ordenado en todo momento para garantizar la seguridad y el buen desarrollo de los experimentos. Un espacio desordenado puede provocar accidentes, como derrames de sustancias, roturas de materiales o errores en las mediciones.
+
+Mantener el orden también facilita el trabajo, ya que permite encontrar rápidamente los instrumentos y materiales necesarios. Cada objeto debe ser colocado en su lugar correspondiente después de ser utilizado, y las superficies de trabajo deben limpiarse antes y después de cada práctica.
+
+Además, un laboratorio ordenado ayuda a evitar la contaminación de sustancias y mejora la precisión de los resultados en los experimentos. Por eso, el orden es una de las normas básicas más importantes dentro del laboratorio.</p>`;
+    }
+
+    if(tipo == "quimicos"){
+        document.getElementById("infoNormas").innerHTML =
+        `<h3><strong>Manejo de químicos</strong></h3><p>El manejo de sustancias químicas en el laboratorio debe realizarse con mucho cuidado y siempre bajo la supervisión del profesor o responsable de la práctica. Esto es fundamental porque muchos productos pueden ser peligrosos si se utilizan de forma incorrecta.
+
+Algunas sustancias pueden ser corrosivas, tóxicas o irritantes, por lo que es importante seguir las instrucciones correctamente y no manipular ningún químico sin autorización. Antes de usarlos, se deben leer las etiquetas y conocer los riesgos de cada material.
+
+También es obligatorio evitar el contacto directo con los químicos, no olerlos directamente y utilizar siempre los elementos de protección como bata, guantes y gafas de seguridad cuando sea necesario.
+
+Un buen manejo de los químicos ayuda a prevenir accidentes y garantiza que los experimentos se realicen de manera segura y controlada.</p>`;
+    }
+
+    if(tipo == "prohibido"){
+        document.getElementById("infoNormas").innerHTML =
+        `<h3><strong>Prohibiciones</strong></h3><p>Dentro del laboratorio existen varias prohibiciones importantes que deben respetarse para garantizar la seguridad de todos los que se encuentran en el lugar. Entre las principales normas se encuentran no correr, no jugar y no realizar bromas, ya que estos comportamientos pueden provocar accidentes o derrames de sustancias peligrosas.
+
+También está prohibido comer o beber dentro del laboratorio, debido al riesgo de contaminación con productos químicos que pueden ser dañinos para la salud. Además, no se deben manipular materiales o equipos sin autorización del profesor.
+
+El respeto de estas prohibiciones ayuda a mantener un ambiente seguro, ordenado y adecuado para realizar experimentos científicos sin riesgos.</p>`;
+    }
+
+}
+
+</script>
+
+</body>
+</html>
